@@ -1,0 +1,21 @@
+
+local rb = nil
+local hb = nil
+
+function start()
+    rb = self:GetComponent(typeof(CS.UnityEngine.Rigidbody));
+    hb = self.transform:Find("Canvas"):Find("Slider").gameObject:GetComponent(typeof(CS.UnityEngine.UI.Slider));
+
+end
+
+function update()
+    local baseForce = 200;
+    rb.velocity = rb.velocity * 0.95;
+    local vector = CS.UnityEngine.Vector3(
+        (math.random() - 0.5) * baseForce,
+        0,
+        (math.random() - 0.5) * baseForce
+    )
+    rb:AddForce(vector);
+    hb.value = rb.velocity.magnitude / 20;
+end

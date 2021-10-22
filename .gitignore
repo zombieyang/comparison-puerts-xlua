@@ -1,0 +1,14 @@
+.vscode
+obj
+ios
+android
+Assets/Puerts/Plugins
+Assets/xLua/Plugins
+Logs
+Packages
+UserSettings
+Library
+Temp
+ProjectSettings
+Plugins
+*.csproj

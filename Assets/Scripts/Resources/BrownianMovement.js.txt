@@ -1,0 +1,26 @@
+const puerts = require('puerts');
+const CS = require('csharp');
+
+class BrownianMovement {
+    constructor(mono) {
+        this._mb = mono;
+        if (this.Update) mono.JsUpdate = this.Update.bind(this);
+        if (this.Start) mono.JsUpdate = this.Start.bind(this);
+        this._rb = this._mb.GetComponent(puerts.$typeof(CS.UnityEngine.Rigidbody));
+        this._hb = this._mb.transform.Find("Canvas").Find("Slider").gameObject.GetComponent(puerts.$typeof(CS.UnityEngine.UI.Slider));
+    }
+
+    Update() {
+        const baseForce = 200;
+        this._rb.velocity = CS.UnityEngine.Vector3.op_Multiply(this._rb.velocity, 0.95);
+        const vector = new CS.UnityEngine.Vector3(
+            (Math.random() - 0.5) * baseForce,
+            0,
+            (Math.random() - 0.5) * baseForce
+        )
+        this._rb.AddForce(vector);
+        this._hb.value = this._rb.velocity.magnitude / 20;
+    }
+}
+
+module.exports = BrownianMovement;
