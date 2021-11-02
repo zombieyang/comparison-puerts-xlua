@@ -26,6 +26,7 @@ namespace PuertsStaticWrap
                         
                         return Puerts.Utils.GetObjectPtr((int)data, typeof(UnityEngine.Resources), result);
                     }
+                    
                 }
                 
                 
@@ -36,6 +37,7 @@ namespace PuertsStaticWrap
             }
             return IntPtr.Zero;
         }
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_FindObjectsOfTypeAll(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -60,6 +62,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -69,6 +72,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_Load(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -93,6 +98,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 2)
@@ -114,6 +120,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to Load");
@@ -123,6 +130,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_LoadAsync(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -147,6 +156,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 2)
@@ -168,6 +178,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to LoadAsync");
@@ -177,6 +188,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_LoadAll(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -204,6 +217,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -222,6 +236,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to LoadAll");
@@ -231,6 +246,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_GetBuiltinResource(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -257,6 +274,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -266,6 +284,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_UnloadAsset(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -290,6 +310,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -299,6 +320,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_UnloadUnusedAssets(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -321,6 +344,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -331,6 +355,10 @@ namespace PuertsStaticWrap
             }
         }
         
+        
+
+        
+
         
         
         
@@ -343,16 +371,39 @@ namespace PuertsStaticWrap
                 Constructor = Constructor,
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {
-                    { new Puerts.MethodKey {Name = "FindObjectsOfTypeAll", IsStatic = true},  F_FindObjectsOfTypeAll },
-                    { new Puerts.MethodKey {Name = "Load", IsStatic = true},  F_Load },
-                    { new Puerts.MethodKey {Name = "LoadAsync", IsStatic = true},  F_LoadAsync },
-                    { new Puerts.MethodKey {Name = "LoadAll", IsStatic = true},  F_LoadAll },
-                    { new Puerts.MethodKey {Name = "GetBuiltinResource", IsStatic = true},  F_GetBuiltinResource },
-                    { new Puerts.MethodKey {Name = "UnloadAsset", IsStatic = true},  F_UnloadAsset },
-                    { new Puerts.MethodKey {Name = "UnloadUnusedAssets", IsStatic = true},  F_UnloadUnusedAssets },
+                    
+                    { new Puerts.MethodKey {Name = "FindObjectsOfTypeAll", IsStatic = true}, F_FindObjectsOfTypeAll },
+                    
+                    { new Puerts.MethodKey {Name = "Load", IsStatic = true}, F_Load },
+                    
+                    { new Puerts.MethodKey {Name = "LoadAsync", IsStatic = true}, F_LoadAsync },
+                    
+                    { new Puerts.MethodKey {Name = "LoadAll", IsStatic = true}, F_LoadAll },
+                    
+                    { new Puerts.MethodKey {Name = "GetBuiltinResource", IsStatic = true}, F_GetBuiltinResource },
+                    
+                    { new Puerts.MethodKey {Name = "UnloadAsset", IsStatic = true}, F_UnloadAsset },
+                    
+                    { new Puerts.MethodKey {Name = "UnloadUnusedAssets", IsStatic = true}, F_UnloadUnusedAssets },
+                    
+                    
+                    
+                    
                     
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
+                {
+                    
+                },
+                LazyMethods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
+                {
+                    
+                    
+                    
+                    
+                    
+                },
+                LazyProperties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
                     
                 }

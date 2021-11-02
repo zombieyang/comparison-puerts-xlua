@@ -4,7 +4,7 @@ using System;
 
 namespace PuertsStaticWrap
 {
-    public static class UnityEngine_TextAsset_Wrap
+    public static class Puerts_DefaultLoader_Wrap
     {
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8ConstructorCallback))]
@@ -21,10 +21,10 @@ namespace PuertsStaticWrap
                     
                     {
                         
-                        var result = new UnityEngine.TextAsset();
+                        var result = new Puerts.DefaultLoader();
                         
                         
-                        return Puerts.Utils.GetObjectPtr((int)data, typeof(UnityEngine.TextAsset), result);
+                        return Puerts.Utils.GetObjectPtr((int)data, typeof(Puerts.DefaultLoader), result);
                     }
                     
                 }
@@ -39,15 +39,15 @@ namespace PuertsStaticWrap
                     {
                         
                         var Arg0 = argHelper0.GetString(false);
-                        var result = new UnityEngine.TextAsset(Arg0);
+                        var result = new Puerts.DefaultLoader(Arg0);
                         
                         
-                        return Puerts.Utils.GetObjectPtr((int)data, typeof(UnityEngine.TextAsset), result);
+                        return Puerts.Utils.GetObjectPtr((int)data, typeof(Puerts.DefaultLoader), result);
                     }
                     
                 }
                 
-                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to UnityEngine.TextAsset constructor");
+                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to Puerts.DefaultLoader constructor");
             }
             catch (Exception e)
             {
@@ -58,30 +58,71 @@ namespace PuertsStaticWrap
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void M_ToString(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        private static void M_FileExists(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.TextAsset;
+                var obj = Puerts.Utils.GetSelf((int)data, self) as Puerts.DefaultLoader;
                 
-                if (paramLen == 0)
+                
                 {
                     
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
                     
                     
                     
                     {
                         
-                        var result = obj.ToString();
+                        var Arg0 = argHelper0.GetString(false);
+                        var result = obj.FileExists(Arg0);
                         
-                        Puerts.PuertsDLL.ReturnString(isolate, info, result);
+                        Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
                         
-                        return;
+                        
                     }
                     
                 }
                 
-                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to ToString");
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void M_ReadFile(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as Puerts.DefaultLoader;
+                
+                
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    var argHelper1 = new Puerts.ArgumentHelper((int)data, isolate, info, 1);
+                    
+                    
+                    
+                    {
+                        
+                        var Arg0 = argHelper0.GetString(false);
+                        var Arg1 = argHelper1.GetString(true);
+                        var result = obj.ReadFile(Arg0,out Arg1);
+                        
+                        argHelper1.SetByRefValue(Arg1);
+                        Puerts.PuertsDLL.ReturnString(isolate, info, result);
+                        
+                        
+                    }
+                    
+                }
+                
+                
             }
             catch (Exception e)
             {
@@ -91,44 +132,6 @@ namespace PuertsStaticWrap
         
         
 
-        
-        
-        
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void G_text(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.TextAsset;
-                var result = obj.text;
-                Puerts.PuertsDLL.ReturnString(isolate, info, result);
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-        
-        
-        
-        
-        
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void G_bytes(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.TextAsset;
-                var result = obj.bytes;
-                Puerts.ResultHelper.Set((int)data, isolate, info, result);
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-        
-        
         
 
         
@@ -144,7 +147,9 @@ namespace PuertsStaticWrap
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {
                     
-                    { new Puerts.MethodKey {Name = "ToString", IsStatic = false}, M_ToString },
+                    { new Puerts.MethodKey {Name = "FileExists", IsStatic = false}, M_FileExists },
+                    
+                    { new Puerts.MethodKey {Name = "ReadFile", IsStatic = false}, M_ReadFile },
                     
                     
                     
@@ -153,10 +158,6 @@ namespace PuertsStaticWrap
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
-                    
-                    {"text", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_text, Setter = null} },
-                    
-                    {"bytes", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_bytes, Setter = null} },
                     
                 },
                 LazyMethods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()

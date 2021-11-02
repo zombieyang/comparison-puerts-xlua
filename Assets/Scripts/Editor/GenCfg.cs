@@ -11,7 +11,23 @@ public static class XLuaGenConfig
     [LuaCallCSharp]
     public static List<Type> LuaCallCSharp = new List<Type>() {
         typeof(UnityEngine.Object),
-        typeof(Vector3),
+        typeof(UnityEngine.Debug),
+        typeof(UnityEngine.Rigidbody),
+        typeof(JSBrownianMovement),
+        typeof(DefaultLoader),
+        typeof(System.Object),
+        typeof(System.Array),
+        typeof(System.Reflection.MemberInfo),
+        typeof(System.Reflection.TypeInfo),
+        typeof(System.Type),
+        typeof(RectTransform),
+        typeof(UnityEngine.EventSystems.UIBehaviour),
+        typeof(UnityEngine.UI.Selectable),
+        typeof(UnityEngine.UI.Slider),
+        typeof(System.ValueType),
+        typeof(UnityEngine.UI.Slider.Direction),
+        typeof(UnityEngine.UI.Slider.SliderEvent),
+        typeof(UnityEngine.Events.UnityEventBase),
         typeof(GameObject),
         typeof(Component),
         typeof(Behaviour),
@@ -29,6 +45,16 @@ public static class XLuaGenConfig
 [Configure]
 public class PuertsGenConfig
 {
+    [Filter]
+    static bool FilterMethods(System.Reflection.MemberInfo mb)
+    {
+        // 排除 MonoBehaviour.runInEditMode, 在 Editor 环境下可用发布后不存在
+        if (mb.DeclaringType == typeof(MonoBehaviour) && mb.Name == "runInEditMode") {
+            return true;
+        }
+        return false;
+    }
+    
     [Binding]
     static IEnumerable<Type> Bindings
     {
@@ -36,16 +62,44 @@ public class PuertsGenConfig
         {
             return new List<Type>()
             {
-        typeof(UnityEngine.Object),
-        typeof(Vector3),
-        typeof(GameObject),
-        typeof(Component),
-        typeof(Behaviour),
-        typeof(Transform),
-        typeof(Resources),
-        typeof(TextAsset),
-        typeof(MonoBehaviour),
-        typeof(SkinnedMeshRenderer),
+                typeof(UnityEngine.Object),
+                typeof(UnityEngine.Debug),
+                typeof(UnityEngine.Rigidbody),
+                typeof(JSBrownianMovement),
+                typeof(DefaultLoader),
+                typeof(System.Object),
+                typeof(System.Array),
+                typeof(System.Reflection.MemberInfo),
+                typeof(System.Reflection.TypeInfo),
+                typeof(System.Type),
+                typeof(RectTransform),
+                typeof(UnityEngine.EventSystems.UIBehaviour),
+                typeof(UnityEngine.UI.Selectable),
+                typeof(UnityEngine.UI.Slider),
+                typeof(System.ValueType),
+                typeof(UnityEngine.UI.Slider.Direction),
+                typeof(UnityEngine.UI.Slider.SliderEvent),
+                typeof(UnityEngine.Events.UnityEventBase),
+                typeof(GameObject),
+                typeof(Component),
+                typeof(Behaviour),
+                typeof(Transform),
+                typeof(Resources),
+                typeof(TextAsset),
+                typeof(MonoBehaviour),
+                typeof(SkinnedMeshRenderer),
+            };
+        }
+    }
+    [BlittableCopy]
+    static IEnumerable<Type> Blittables
+    {
+        get
+        {
+            return new List<Type>()
+            {
+                //打开这个可以优化Vector3的GC，但需要开启unsafe编译
+                typeof(Vector3),
             };
         }
     }

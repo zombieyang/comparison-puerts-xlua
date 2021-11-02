@@ -16,12 +16,6 @@ namespace Puerts
     public delegate void FunctionCallback(IntPtr isolate, IntPtr info, IntPtr self, int argumentsLen);
     public delegate object ConstructorCallback(IntPtr isolate, IntPtr info, int argumentsLen);
 
-    public enum JsEnvMode {
-        Default = 0,
-        Node = 1,
-        External = 2
-    }
-
     public class JsEnv : IDisposable
     {
         internal readonly int Idx;
@@ -36,15 +30,13 @@ namespace Puerts
 
         internal readonly JSObjectFactory jsObjectFactory;
 
-        private readonly ILoader loader;
-
-        public static List<JsEnv> jsEnvs = new List<JsEnv>();
-
         internal IntPtr isolate;
 
         internal ObjectPool objectPool;
 
-        JsEnvMode mode;
+        private readonly ILoader loader;
+
+        public static List<JsEnv> jsEnvs = new List<JsEnv>();
 
 #if UNITY_EDITOR
         public delegate void JsEnvCreateCallback(JsEnv env, ILoader loader, int debugPort);
@@ -55,29 +47,24 @@ namespace Puerts
         public int debugPort;
 #endif
 
-        public JsEnv(JsEnvMode mode = JsEnvMode.Default) 
-            : this(new DefaultLoader(), -1, mode, IntPtr.Zero, IntPtr.Zero)
+        public JsEnv() 
+            : this(new DefaultLoader(), -1, IntPtr.Zero, IntPtr.Zero)
         {
         }
 
-        public JsEnv(ILoader loader, int debugPort = -1, JsEnvMode mode = JsEnvMode.Default)
-             : this(loader, debugPort, mode, IntPtr.Zero, IntPtr.Zero)
+        public JsEnv(ILoader loader, int debugPort = -1)
+             : this(loader, debugPort, IntPtr.Zero, IntPtr.Zero)
         {
         }
 
         public JsEnv(ILoader loader, IntPtr externalRuntime, IntPtr externalContext)
-            : this(loader, -1, JsEnvMode.External, externalRuntime, externalContext)
+            : this(loader, -1, externalRuntime, externalContext)
         {
         }
 
         public JsEnv(ILoader loader, int debugPort, IntPtr externalRuntime, IntPtr externalContext)
-            : this(loader, debugPort, JsEnvMode.External, externalRuntime, externalContext)
         {
-        }
-
-        public JsEnv(ILoader loader, int debugPort, JsEnvMode mode, IntPtr externalRuntime, IntPtr externalContext)
-        {
-            const int libVersionExpect = 13;
+            const int libVersionExpect = 14;
             int libVersion = PuertsDLL.GetLibVersion();
             if (libVersion != libVersionExpect)
             {
@@ -85,14 +72,10 @@ namespace Puerts
             }
             // PuertsDLL.SetLogCallback(LogCallback, LogWarningCallback, LogErrorCallback);
             this.loader = loader;
-            this.mode = mode;
-            if (mode == JsEnvMode.External)
+            
+            if (externalRuntime != IntPtr.Zero)
             {
                 isolate = PuertsDLL.CreateJSEngineWithExternalEnv(externalRuntime, externalContext);
-            }
-            else if (mode == JsEnvMode.Node)
-            {
-                isolate = PuertsDLL.CreateJSEngineWithNode();
             }
             else
             {
@@ -133,14 +116,6 @@ namespace Puerts
             // 注册JS对象通用GC回调
             PuertsDLL.SetGeneralDestructor(isolate, StaticCallbacks.GeneralDestructor);
 
-            TypeRegister.InitArrayTypeId(isolate);
-
-            // 把JSEnv的id和Callback的id拼成一个long存起来，并将StaticCallbacks.JsEnvCallbackWrap注册给V8。而后通过StaticCallbacks.JsEnvCallbackWrap从long中取出函数和envid并调用。
-            PuertsDLL.SetGlobalFunction(isolate, "__tgjsRegisterTickHandler", StaticCallbacks.JsEnvCallbackWrap, AddCallback(RegisterTickHandler));
-            PuertsDLL.SetGlobalFunction(isolate, "__tgjsLoadType", StaticCallbacks.JsEnvCallbackWrap, AddCallback(LoadType));
-            PuertsDLL.SetGlobalFunction(isolate, "__tgjsGetNestedTypes", StaticCallbacks.JsEnvCallbackWrap, AddCallback(GetNestedTypes));
-            PuertsDLL.SetGlobalFunction(isolate, "__tgjsGetLoader", StaticCallbacks.JsEnvCallbackWrap, AddCallback(GetLoader));
-
             //可以DISABLE掉自动注册，通过手动调用PuertsStaticWrap.AutoStaticCodeRegister.Register(jsEnv)来注册
 #if !DISABLE_AUTO_REGISTER
             const string AutoStaticCodeRegisterClassName = "PuertsStaticWrap.AutoStaticCodeRegister";
@@ -160,26 +135,47 @@ namespace Puerts
             }
 #endif
 
+            TypeRegister.InitArrayTypeId(isolate);
+
+            // 把JSEnv的id和Callback的id拼成一个long存起来，并将StaticCallbacks.JsEnvCallbackWrap注册给V8。而后通过StaticCallbacks.JsEnvCallbackWrap从long中取出函数和envid并调用。
+            PuertsDLL.SetGlobalFunction(isolate, "__tgjsRegisterTickHandler", StaticCallbacks.JsEnvCallbackWrap, AddCallback(RegisterTickHandler));
+            PuertsDLL.SetGlobalFunction(isolate, "__tgjsLoadType", StaticCallbacks.JsEnvCallbackWrap, AddCallback(LoadType));
+            PuertsDLL.SetGlobalFunction(isolate, "__tgjsGetNestedTypes", StaticCallbacks.JsEnvCallbackWrap, AddCallback(GetNestedTypes));
+            PuertsDLL.SetGlobalFunction(isolate, "__tgjsGetLoader", StaticCallbacks.JsEnvCallbackWrap, AddCallback(GetLoader));
+
             if (debugPort != -1)
             {
                 PuertsDLL.CreateInspector(isolate, debugPort);
             }
 
+            bool isNode = PuertsDLL.GetLibBackend() == 1;
             ExecuteFile("puerts/init.js");
             ExecuteFile("puerts/log.js");
             ExecuteFile("puerts/cjsload.js");
             ExecuteFile("puerts/modular.js");
             ExecuteFile("puerts/csharp.js");
-            if (mode != JsEnvMode.Node) 
+#if !PUERTS_GENERAL
+            if (!isNode) 
             {
+#endif
                 ExecuteFile("puerts/timer.js");
+#if !PUERTS_GENERAL
             }
+#endif
             ExecuteFile("puerts/events.js");
             ExecuteFile("puerts/promises.js");
-            if (mode != JsEnvMode.Node) 
+#if !PUERTS_GENERAL
+            if (!isNode) 
             {
+#endif
                 ExecuteFile("puerts/polyfill.js");
+#if !PUERTS_GENERAL
             }
+            else
+            {
+                ExecuteFile("puerts/nodepatch.js");
+            }
+#endif
 
 #if UNITY_EDITOR
             if (OnJsEnvCreate != null) 

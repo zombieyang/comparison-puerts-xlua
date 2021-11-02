@@ -66,8 +66,9 @@ public class GameManager : MonoBehaviour
     public void RunPuerts(int UnitCount)
     {
         Clean();
-        JsEnv = new JsEnv(new DefaultLoader(), 9222);
-        JsEnv.WaitDebugger();
+        JsEnv = new JsEnv();
+        // JsEnv = new JsEnv(new DefaultLoader(), 9222);
+        // JsEnv.WaitDebugger();
         UnityEngine.Debug.Log("RunPuerts: " + UnitCount);
         
         for (int i = 0; i < UnitCount; i++)

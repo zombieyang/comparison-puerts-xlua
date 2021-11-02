@@ -26,6 +26,7 @@ namespace PuertsStaticWrap
                         
                         return Puerts.Utils.GetObjectPtr((int)data, typeof(UnityEngine.Object), result);
                     }
+                    
                 }
                 
                 
@@ -36,6 +37,7 @@ namespace PuertsStaticWrap
             }
             return IntPtr.Zero;
         }
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_GetInstanceID(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -58,6 +60,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -67,6 +70,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_GetHashCode(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -89,6 +94,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -98,6 +104,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_Equals(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -122,6 +130,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -131,6 +140,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_Instantiate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -161,6 +172,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Object), false, false)
                         && argHelper1.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Transform), false, false)
                         && argHelper2.IsMatch(Puerts.JsValueType.Boolean, null, false, false))
@@ -175,34 +187,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
-                    if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Object), false, false)
-                        && argHelper1.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Vector3), false, false)
-                        && argHelper2.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Quaternion), false, false))
-                    {
-                        
-                        var Arg0 = argHelper0.Get<UnityEngine.Object>(false);
-                        var Arg1 = argHelper1.Get<UnityEngine.Vector3>(false);
-                        var Arg2 = argHelper2.Get<UnityEngine.Quaternion>(false);
-                        var result = UnityEngine.Object.Instantiate(Arg0,Arg1,Arg2);
-                        
-                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
-                        
-                        return;
-                    }
-                    if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Object), false, false)
-                        && argHelper1.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Transform), false, false)
-                        && argHelper2.IsMatch(Puerts.JsValueType.Boolean, null, false, false))
-                    {
-                        
-                        var Arg0 = argHelper0.Get<UnityEngine.Object>(false);
-                        var Arg1 = argHelper1.Get<UnityEngine.Transform>(false);
-                        var Arg2 = argHelper2.GetBoolean(false);
-                        var result = UnityEngine.Object.Instantiate(Arg0,Arg1,Arg2);
-                        
-                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
-                        
-                        return;
-                    }
+                    
                 }
                 
                 if (paramLen == 4)
@@ -230,22 +215,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
-                    if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Object), false, false)
-                        && argHelper1.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Vector3), false, false)
-                        && argHelper2.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Quaternion), false, false)
-                        && argHelper3.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Transform), false, false))
-                    {
-                        
-                        var Arg0 = argHelper0.Get<UnityEngine.Object>(false);
-                        var Arg1 = argHelper1.Get<UnityEngine.Vector3>(false);
-                        var Arg2 = argHelper2.Get<UnityEngine.Quaternion>(false);
-                        var Arg3 = argHelper3.Get<UnityEngine.Transform>(false);
-                        var result = UnityEngine.Object.Instantiate(Arg0,Arg1,Arg2,Arg3);
-                        
-                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
-                        
-                        return;
-                    }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -264,16 +234,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
-                    if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Object), false, false))
-                    {
-                        
-                        var Arg0 = argHelper0.Get<UnityEngine.Object>(false);
-                        var result = UnityEngine.Object.Instantiate(Arg0);
-                        
-                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
-                        
-                        return;
-                    }
+                    
                 }
                 
                 if (paramLen == 2)
@@ -295,18 +256,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
-                    if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Object), false, false)
-                        && argHelper1.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Transform), false, false))
-                    {
-                        
-                        var Arg0 = argHelper0.Get<UnityEngine.Object>(false);
-                        var Arg1 = argHelper1.Get<UnityEngine.Transform>(false);
-                        var result = UnityEngine.Object.Instantiate(Arg0,Arg1);
-                        
-                        Puerts.ResultHelper.Set((int)data, isolate, info, result);
-                        
-                        return;
-                    }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to Instantiate");
@@ -316,6 +266,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_Destroy(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -343,6 +295,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -361,6 +314,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to Destroy");
@@ -370,6 +324,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_DestroyImmediate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -397,6 +353,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -415,6 +372,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to DestroyImmediate");
@@ -424,6 +382,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_FindObjectsOfType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -448,6 +408,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -457,6 +418,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_DontDestroyOnLoad(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -481,6 +444,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -490,6 +454,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_FindObjectOfType(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -514,6 +480,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -523,6 +490,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_ToString(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -545,6 +514,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -554,6 +524,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
+
         
         
         
@@ -589,6 +562,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_hideFlags(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -621,6 +596,10 @@ namespace PuertsStaticWrap
         }
         
         
+
+        
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void O_op_Equality(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -644,6 +623,7 @@ namespace PuertsStaticWrap
                         Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
                         
                     }
+                    
                 }
                 
                 
@@ -653,6 +633,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void O_op_Inequality(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -676,6 +658,7 @@ namespace PuertsStaticWrap
                         Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
                         
                     }
+                    
                 }
                 
                 
@@ -687,6 +670,7 @@ namespace PuertsStaticWrap
         }
         
         
+        
         public static Puerts.TypeRegisterInfo GetRegisterInfo()
         {
             return new Puerts.TypeRegisterInfo()
@@ -695,24 +679,54 @@ namespace PuertsStaticWrap
                 Constructor = Constructor,
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {
-                    { new Puerts.MethodKey {Name = "GetInstanceID", IsStatic = false},  M_GetInstanceID },
-                    { new Puerts.MethodKey {Name = "GetHashCode", IsStatic = false},  M_GetHashCode },
-                    { new Puerts.MethodKey {Name = "Equals", IsStatic = false},  M_Equals },
-                    { new Puerts.MethodKey {Name = "Instantiate", IsStatic = true},  F_Instantiate },
-                    { new Puerts.MethodKey {Name = "Destroy", IsStatic = true},  F_Destroy },
-                    { new Puerts.MethodKey {Name = "DestroyImmediate", IsStatic = true},  F_DestroyImmediate },
-                    { new Puerts.MethodKey {Name = "FindObjectsOfType", IsStatic = true},  F_FindObjectsOfType },
-                    { new Puerts.MethodKey {Name = "DontDestroyOnLoad", IsStatic = true},  F_DontDestroyOnLoad },
-                    { new Puerts.MethodKey {Name = "FindObjectOfType", IsStatic = true},  F_FindObjectOfType },
-                    { new Puerts.MethodKey {Name = "ToString", IsStatic = false},  M_ToString },
-                    { new Puerts.MethodKey {Name = "op_Equality", IsStatic = true}, O_op_Equality},
-                    { new Puerts.MethodKey {Name = "op_Inequality", IsStatic = true}, O_op_Inequality},
+                    
+                    { new Puerts.MethodKey {Name = "GetInstanceID", IsStatic = false}, M_GetInstanceID },
+                    
+                    { new Puerts.MethodKey {Name = "GetHashCode", IsStatic = false}, M_GetHashCode },
+                    
+                    { new Puerts.MethodKey {Name = "Equals", IsStatic = false}, M_Equals },
+                    
+                    { new Puerts.MethodKey {Name = "Instantiate", IsStatic = true}, F_Instantiate },
+                    
+                    { new Puerts.MethodKey {Name = "Destroy", IsStatic = true}, F_Destroy },
+                    
+                    { new Puerts.MethodKey {Name = "DestroyImmediate", IsStatic = true}, F_DestroyImmediate },
+                    
+                    { new Puerts.MethodKey {Name = "FindObjectsOfType", IsStatic = true}, F_FindObjectsOfType },
+                    
+                    { new Puerts.MethodKey {Name = "DontDestroyOnLoad", IsStatic = true}, F_DontDestroyOnLoad },
+                    
+                    { new Puerts.MethodKey {Name = "FindObjectOfType", IsStatic = true}, F_FindObjectOfType },
+                    
+                    { new Puerts.MethodKey {Name = "ToString", IsStatic = false}, M_ToString },
+                    
+                    
+                    
+                    
+                    { new Puerts.MethodKey {Name = "op_Equality", IsStatic = true}, O_op_Equality },
+                    
+                    { new Puerts.MethodKey {Name = "op_Inequality", IsStatic = true}, O_op_Inequality },
+                    
                     
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
+                    
                     {"name", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_name, Setter = S_name} },
+                    
                     {"hideFlags", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_hideFlags, Setter = S_hideFlags} },
+                    
+                },
+                LazyMethods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
+                {
+                    
+                    
+                    
+                    
+                    
+                },
+                LazyProperties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
+                {
                     
                 }
             };

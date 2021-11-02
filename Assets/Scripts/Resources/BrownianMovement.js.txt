@@ -5,7 +5,7 @@ class BrownianMovement {
     constructor(mono) {
         this._mb = mono;
         if (this.Update) mono.JsUpdate = this.Update.bind(this);
-        if (this.Start) mono.JsUpdate = this.Start.bind(this);
+        if (this.Start) mono.JsStart = this.Start.bind(this);
         this._rb = this._mb.GetComponent(puerts.$typeof(CS.UnityEngine.Rigidbody));
         this._hb = this._mb.transform.Find("Canvas").Find("Slider").gameObject.GetComponent(puerts.$typeof(CS.UnityEngine.UI.Slider));
     }

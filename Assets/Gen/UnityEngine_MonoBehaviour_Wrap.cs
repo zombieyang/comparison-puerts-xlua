@@ -26,6 +26,7 @@ namespace PuertsStaticWrap
                         
                         return Puerts.Utils.GetObjectPtr((int)data, typeof(UnityEngine.MonoBehaviour), result);
                     }
+                    
                 }
                 
                 
@@ -36,6 +37,7 @@ namespace PuertsStaticWrap
             }
             return IntPtr.Zero;
         }
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_IsInvoking(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -58,6 +60,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -76,6 +79,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to IsInvoking");
@@ -85,6 +89,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_CancelInvoke(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -107,6 +113,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -125,6 +132,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to CancelInvoke");
@@ -134,6 +142,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_Invoke(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -160,6 +170,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -169,6 +180,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_InvokeRepeating(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -197,6 +210,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -206,6 +220,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_StartCoroutine(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -230,6 +246,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(System.Collections.IEnumerator), false, false))
                     {
                         
@@ -240,6 +257,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 2)
@@ -261,6 +279,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to StartCoroutine");
@@ -270,6 +289,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_StopCoroutine(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -294,6 +315,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Coroutine), false, false))
                     {
                         
@@ -304,6 +326,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.String, null, false, false))
                     {
                         
@@ -314,6 +337,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to StopCoroutine");
@@ -323,6 +347,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_StopAllCoroutines(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -345,6 +371,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -354,6 +381,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void F_print(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -378,6 +407,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -387,6 +417,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
+
         
         
         
@@ -422,36 +455,9 @@ namespace PuertsStaticWrap
         }
         
         
-        // [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        // private static void G_runInEditMode(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        // {
-        //     try
-        //     {
-        //         var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.MonoBehaviour;
-        //         var result = obj.runInEditMode;
-        //         Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
-        //     }
-        //     catch (Exception e)
-        //     {
-        //         Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-        //     }
-        // }
         
-        // [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        // private static void S_runInEditMode(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        // {
-        //     try
-        //     {
-        //         var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.MonoBehaviour;
-        //         var argHelper = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-        //         obj.runInEditMode = argHelper.GetBoolean(false);
-                
-        //     }
-        //     catch (Exception e)
-        //     {
-        //         Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-        //     }
-        // }
+        
+
         
         
         
@@ -464,20 +470,46 @@ namespace PuertsStaticWrap
                 Constructor = Constructor,
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {
-                    { new Puerts.MethodKey {Name = "IsInvoking", IsStatic = false},  M_IsInvoking },
-                    { new Puerts.MethodKey {Name = "CancelInvoke", IsStatic = false},  M_CancelInvoke },
-                    { new Puerts.MethodKey {Name = "Invoke", IsStatic = false},  M_Invoke },
-                    { new Puerts.MethodKey {Name = "InvokeRepeating", IsStatic = false},  M_InvokeRepeating },
-                    { new Puerts.MethodKey {Name = "StartCoroutine", IsStatic = false},  M_StartCoroutine },
-                    { new Puerts.MethodKey {Name = "StopCoroutine", IsStatic = false},  M_StopCoroutine },
-                    { new Puerts.MethodKey {Name = "StopAllCoroutines", IsStatic = false},  M_StopAllCoroutines },
-                    { new Puerts.MethodKey {Name = "print", IsStatic = true},  F_print },
+                    
+                    { new Puerts.MethodKey {Name = "IsInvoking", IsStatic = false}, M_IsInvoking },
+                    
+                    { new Puerts.MethodKey {Name = "CancelInvoke", IsStatic = false}, M_CancelInvoke },
+                    
+                    { new Puerts.MethodKey {Name = "Invoke", IsStatic = false}, M_Invoke },
+                    
+                    { new Puerts.MethodKey {Name = "InvokeRepeating", IsStatic = false}, M_InvokeRepeating },
+                    
+                    { new Puerts.MethodKey {Name = "StartCoroutine", IsStatic = false}, M_StartCoroutine },
+                    
+                    { new Puerts.MethodKey {Name = "StopCoroutine", IsStatic = false}, M_StopCoroutine },
+                    
+                    { new Puerts.MethodKey {Name = "StopAllCoroutines", IsStatic = false}, M_StopAllCoroutines },
+                    
+                    { new Puerts.MethodKey {Name = "print", IsStatic = true}, F_print },
+                    
+                    
+                    
+                    
                     
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
+                    
                     {"useGUILayout", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_useGUILayout, Setter = S_useGUILayout} },
-                    // {"runInEditMode", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_runInEditMode, Setter = S_runInEditMode} },
+                    
+                },
+                LazyMethods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
+                {
+                    
+                    
+                    
+                    
+                    
+                },
+                LazyProperties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
+                {
+                    
+                    {"runInEditMode", new Puerts.PropertyRegisterInfo(){ IsStatic = false } },
                     
                 }
             };

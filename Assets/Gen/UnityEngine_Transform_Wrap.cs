@@ -22,6 +22,7 @@ namespace PuertsStaticWrap
             return IntPtr.Zero;
         }
         
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_SetParent(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -45,6 +46,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 2)
@@ -66,6 +68,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to SetParent");
@@ -75,6 +78,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_SetPositionAndRotation(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -101,6 +106,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -110,6 +116,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_Translate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -137,6 +145,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Vector3), false, false)
                         && argHelper1.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.NativeObject, typeof(UnityEngine.Transform), false, false))
                     {
@@ -149,6 +158,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -167,6 +177,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 4)
@@ -194,6 +205,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.Number, null, false, false)
                         && argHelper1.IsMatch(Puerts.JsValueType.Number, null, false, false)
                         && argHelper2.IsMatch(Puerts.JsValueType.Number, null, false, false)
@@ -210,6 +222,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 3)
@@ -234,6 +247,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to Translate");
@@ -243,6 +257,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_Rotate(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -270,6 +286,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Vector3), false, false)
                         && argHelper1.IsMatch(Puerts.JsValueType.Number, null, false, false))
                     {
@@ -282,6 +299,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -300,6 +318,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 4)
@@ -327,6 +346,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 3)
@@ -351,6 +371,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Vector3), false, false)
                         && argHelper1.IsMatch(Puerts.JsValueType.Number, null, false, false)
                         && argHelper2.IsMatch(Puerts.JsValueType.Number, null, false, false))
@@ -365,6 +386,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to Rotate");
@@ -374,6 +396,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_RotateAround(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -402,6 +426,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -411,6 +436,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_LookAt(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -438,6 +465,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Vector3), false, false)
                         && argHelper1.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Vector3), false, false))
                     {
@@ -450,6 +478,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 1)
@@ -468,6 +497,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                     if (argHelper0.IsMatch(Puerts.JsValueType.NativeObject, typeof(UnityEngine.Vector3), false, false))
                     {
                         
@@ -478,6 +508,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to LookAt");
@@ -487,6 +518,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_TransformDirection(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -511,6 +544,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 3)
@@ -535,6 +569,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to TransformDirection");
@@ -544,6 +579,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_InverseTransformDirection(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -568,6 +605,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 3)
@@ -592,6 +630,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to InverseTransformDirection");
@@ -601,6 +640,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_TransformVector(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -625,6 +666,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 3)
@@ -649,6 +691,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to TransformVector");
@@ -658,6 +701,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_InverseTransformVector(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -682,6 +727,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 3)
@@ -706,6 +752,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to InverseTransformVector");
@@ -715,6 +762,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_TransformPoint(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -739,6 +788,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 3)
@@ -763,6 +813,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to TransformPoint");
@@ -772,6 +823,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_InverseTransformPoint(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -796,6 +849,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 if (paramLen == 3)
@@ -820,6 +874,7 @@ namespace PuertsStaticWrap
                         
                         return;
                     }
+                    
                 }
                 
                 Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to InverseTransformPoint");
@@ -829,6 +884,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_DetachChildren(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -851,6 +908,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -860,6 +918,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_SetAsFirstSibling(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -882,6 +942,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -891,6 +952,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_SetAsLastSibling(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -913,6 +976,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -922,6 +986,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_SetSiblingIndex(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -946,6 +1012,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -955,6 +1022,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_GetSiblingIndex(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -977,6 +1046,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -986,6 +1056,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_Find(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -1010,6 +1082,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -1019,6 +1092,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_IsChildOf(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -1043,6 +1118,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -1052,6 +1128,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_GetEnumerator(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -1074,6 +1152,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -1083,6 +1162,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_GetChild(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -1107,6 +1188,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -1116,6 +1198,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
+
         
         
         
@@ -1151,6 +1236,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_localPosition(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1181,6 +1268,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -1215,6 +1304,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_localEulerAngles(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1245,6 +1336,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -1279,6 +1372,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_up(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1309,6 +1404,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -1343,6 +1440,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_rotation(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1373,6 +1472,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -1407,6 +1508,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_localScale(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1437,6 +1540,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -1471,6 +1576,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_worldToLocalMatrix(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1485,6 +1592,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         
@@ -1505,6 +1614,8 @@ namespace PuertsStaticWrap
         
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_root(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1519,6 +1630,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         
@@ -1539,6 +1652,8 @@ namespace PuertsStaticWrap
         
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_lossyScale(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1553,6 +1668,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         
@@ -1588,6 +1705,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_hierarchyCapacity(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1620,6 +1739,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_hierarchyCount(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -1637,6 +1758,9 @@ namespace PuertsStaticWrap
         
         
         
+
+        
+        
         
         
         public static Puerts.TypeRegisterInfo GetRegisterInfo()
@@ -1647,50 +1771,106 @@ namespace PuertsStaticWrap
                 Constructor = Constructor,
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {
-                    { new Puerts.MethodKey {Name = "SetParent", IsStatic = false},  M_SetParent },
-                    { new Puerts.MethodKey {Name = "SetPositionAndRotation", IsStatic = false},  M_SetPositionAndRotation },
-                    { new Puerts.MethodKey {Name = "Translate", IsStatic = false},  M_Translate },
-                    { new Puerts.MethodKey {Name = "Rotate", IsStatic = false},  M_Rotate },
-                    { new Puerts.MethodKey {Name = "RotateAround", IsStatic = false},  M_RotateAround },
-                    { new Puerts.MethodKey {Name = "LookAt", IsStatic = false},  M_LookAt },
-                    { new Puerts.MethodKey {Name = "TransformDirection", IsStatic = false},  M_TransformDirection },
-                    { new Puerts.MethodKey {Name = "InverseTransformDirection", IsStatic = false},  M_InverseTransformDirection },
-                    { new Puerts.MethodKey {Name = "TransformVector", IsStatic = false},  M_TransformVector },
-                    { new Puerts.MethodKey {Name = "InverseTransformVector", IsStatic = false},  M_InverseTransformVector },
-                    { new Puerts.MethodKey {Name = "TransformPoint", IsStatic = false},  M_TransformPoint },
-                    { new Puerts.MethodKey {Name = "InverseTransformPoint", IsStatic = false},  M_InverseTransformPoint },
-                    { new Puerts.MethodKey {Name = "DetachChildren", IsStatic = false},  M_DetachChildren },
-                    { new Puerts.MethodKey {Name = "SetAsFirstSibling", IsStatic = false},  M_SetAsFirstSibling },
-                    { new Puerts.MethodKey {Name = "SetAsLastSibling", IsStatic = false},  M_SetAsLastSibling },
-                    { new Puerts.MethodKey {Name = "SetSiblingIndex", IsStatic = false},  M_SetSiblingIndex },
-                    { new Puerts.MethodKey {Name = "GetSiblingIndex", IsStatic = false},  M_GetSiblingIndex },
-                    { new Puerts.MethodKey {Name = "Find", IsStatic = false},  M_Find },
-                    { new Puerts.MethodKey {Name = "IsChildOf", IsStatic = false},  M_IsChildOf },
-                    { new Puerts.MethodKey {Name = "GetEnumerator", IsStatic = false},  M_GetEnumerator },
-                    { new Puerts.MethodKey {Name = "GetChild", IsStatic = false},  M_GetChild },
+                    
+                    { new Puerts.MethodKey {Name = "SetParent", IsStatic = false}, M_SetParent },
+                    
+                    { new Puerts.MethodKey {Name = "SetPositionAndRotation", IsStatic = false}, M_SetPositionAndRotation },
+                    
+                    { new Puerts.MethodKey {Name = "Translate", IsStatic = false}, M_Translate },
+                    
+                    { new Puerts.MethodKey {Name = "Rotate", IsStatic = false}, M_Rotate },
+                    
+                    { new Puerts.MethodKey {Name = "RotateAround", IsStatic = false}, M_RotateAround },
+                    
+                    { new Puerts.MethodKey {Name = "LookAt", IsStatic = false}, M_LookAt },
+                    
+                    { new Puerts.MethodKey {Name = "TransformDirection", IsStatic = false}, M_TransformDirection },
+                    
+                    { new Puerts.MethodKey {Name = "InverseTransformDirection", IsStatic = false}, M_InverseTransformDirection },
+                    
+                    { new Puerts.MethodKey {Name = "TransformVector", IsStatic = false}, M_TransformVector },
+                    
+                    { new Puerts.MethodKey {Name = "InverseTransformVector", IsStatic = false}, M_InverseTransformVector },
+                    
+                    { new Puerts.MethodKey {Name = "TransformPoint", IsStatic = false}, M_TransformPoint },
+                    
+                    { new Puerts.MethodKey {Name = "InverseTransformPoint", IsStatic = false}, M_InverseTransformPoint },
+                    
+                    { new Puerts.MethodKey {Name = "DetachChildren", IsStatic = false}, M_DetachChildren },
+                    
+                    { new Puerts.MethodKey {Name = "SetAsFirstSibling", IsStatic = false}, M_SetAsFirstSibling },
+                    
+                    { new Puerts.MethodKey {Name = "SetAsLastSibling", IsStatic = false}, M_SetAsLastSibling },
+                    
+                    { new Puerts.MethodKey {Name = "SetSiblingIndex", IsStatic = false}, M_SetSiblingIndex },
+                    
+                    { new Puerts.MethodKey {Name = "GetSiblingIndex", IsStatic = false}, M_GetSiblingIndex },
+                    
+                    { new Puerts.MethodKey {Name = "Find", IsStatic = false}, M_Find },
+                    
+                    { new Puerts.MethodKey {Name = "IsChildOf", IsStatic = false}, M_IsChildOf },
+                    
+                    { new Puerts.MethodKey {Name = "GetEnumerator", IsStatic = false}, M_GetEnumerator },
+                    
+                    { new Puerts.MethodKey {Name = "GetChild", IsStatic = false}, M_GetChild },
+                    
+                    
+                    
+                    
                     
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
+                    
                     {"position", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_position, Setter = S_position} },
+                    
                     {"localPosition", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_localPosition, Setter = S_localPosition} },
+                    
                     {"eulerAngles", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_eulerAngles, Setter = S_eulerAngles} },
+                    
                     {"localEulerAngles", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_localEulerAngles, Setter = S_localEulerAngles} },
+                    
                     {"right", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_right, Setter = S_right} },
+                    
                     {"up", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_up, Setter = S_up} },
+                    
                     {"forward", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_forward, Setter = S_forward} },
+                    
                     {"rotation", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_rotation, Setter = S_rotation} },
+                    
                     {"localRotation", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_localRotation, Setter = S_localRotation} },
+                    
                     {"localScale", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_localScale, Setter = S_localScale} },
+                    
                     {"parent", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_parent, Setter = S_parent} },
+                    
                     {"worldToLocalMatrix", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_worldToLocalMatrix, Setter = null} },
+                    
                     {"localToWorldMatrix", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_localToWorldMatrix, Setter = null} },
+                    
                     {"root", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_root, Setter = null} },
+                    
                     {"childCount", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_childCount, Setter = null} },
+                    
                     {"lossyScale", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_lossyScale, Setter = null} },
+                    
                     {"hasChanged", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_hasChanged, Setter = S_hasChanged} },
+                    
                     {"hierarchyCapacity", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_hierarchyCapacity, Setter = S_hierarchyCapacity} },
+                    
                     {"hierarchyCount", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_hierarchyCount, Setter = null} },
+                    
+                },
+                LazyMethods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
+                {
+                    
+                    
+                    
+                    
+                    
+                },
+                LazyProperties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
+                {
                     
                 }
             };

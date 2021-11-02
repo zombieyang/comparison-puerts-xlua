@@ -26,6 +26,7 @@ namespace PuertsStaticWrap
                         
                         return Puerts.Utils.GetObjectPtr((int)data, typeof(UnityEngine.SkinnedMeshRenderer), result);
                     }
+                    
                 }
                 
                 
@@ -36,6 +37,7 @@ namespace PuertsStaticWrap
             }
             return IntPtr.Zero;
         }
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_GetBlendShapeWeight(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -60,6 +62,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -69,6 +72,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_SetBlendShapeWeight(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -95,6 +100,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -104,6 +110,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_BakeMesh(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
@@ -128,6 +136,7 @@ namespace PuertsStaticWrap
                         
                         
                     }
+                    
                 }
                 
                 
@@ -137,6 +146,9 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
+
         
         
         
@@ -172,6 +184,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_updateWhenOffscreen(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -202,6 +216,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -236,6 +252,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_rootBone(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -266,6 +284,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -300,6 +320,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_sharedMesh(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -330,6 +352,8 @@ namespace PuertsStaticWrap
                 Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
             }
         }
+        
+        
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
@@ -364,6 +388,8 @@ namespace PuertsStaticWrap
         }
         
         
+        
+        
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void G_localBounds(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
@@ -396,6 +422,9 @@ namespace PuertsStaticWrap
         }
         
         
+
+        
+        
         
         
         public static Puerts.TypeRegisterInfo GetRegisterInfo()
@@ -406,21 +435,48 @@ namespace PuertsStaticWrap
                 Constructor = Constructor,
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {
-                    { new Puerts.MethodKey {Name = "GetBlendShapeWeight", IsStatic = false},  M_GetBlendShapeWeight },
-                    { new Puerts.MethodKey {Name = "SetBlendShapeWeight", IsStatic = false},  M_SetBlendShapeWeight },
-                    { new Puerts.MethodKey {Name = "BakeMesh", IsStatic = false},  M_BakeMesh },
+                    
+                    { new Puerts.MethodKey {Name = "GetBlendShapeWeight", IsStatic = false}, M_GetBlendShapeWeight },
+                    
+                    { new Puerts.MethodKey {Name = "SetBlendShapeWeight", IsStatic = false}, M_SetBlendShapeWeight },
+                    
+                    { new Puerts.MethodKey {Name = "BakeMesh", IsStatic = false}, M_BakeMesh },
+                    
+                    
+                    
+                    
                     
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
+                    
                     {"quality", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_quality, Setter = S_quality} },
+                    
                     {"updateWhenOffscreen", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_updateWhenOffscreen, Setter = S_updateWhenOffscreen} },
+                    
                     {"forceMatrixRecalculationPerRender", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_forceMatrixRecalculationPerRender, Setter = S_forceMatrixRecalculationPerRender} },
+                    
                     {"rootBone", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_rootBone, Setter = S_rootBone} },
+                    
                     {"bones", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_bones, Setter = S_bones} },
+                    
                     {"sharedMesh", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_sharedMesh, Setter = S_sharedMesh} },
+                    
                     {"skinnedMotionVectors", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_skinnedMotionVectors, Setter = S_skinnedMotionVectors} },
+                    
                     {"localBounds", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_localBounds, Setter = S_localBounds} },
+                    
+                },
+                LazyMethods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
+                {
+                    
+                    
+                    
+                    
+                    
+                },
+                LazyProperties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
+                {
                     
                 }
             };

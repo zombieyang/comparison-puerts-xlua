@@ -4,7 +4,7 @@ using System;
 
 namespace PuertsStaticWrap
 {
-    public static class UnityEngine_TextAsset_Wrap
+    public static class System_ValueType_Wrap
     {
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8ConstructorCallback))]
@@ -13,41 +13,7 @@ namespace PuertsStaticWrap
             try
             {
                 
-                if (paramLen == 0)
-                {
-                    
-                    
-                    
-                    
-                    {
-                        
-                        var result = new UnityEngine.TextAsset();
-                        
-                        
-                        return Puerts.Utils.GetObjectPtr((int)data, typeof(UnityEngine.TextAsset), result);
-                    }
-                    
-                }
-                
-                if (paramLen == 1)
-                {
-                    
-                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
-                    
-                    
-                    if (argHelper0.IsMatch(Puerts.JsValueType.NullOrUndefined | Puerts.JsValueType.String, null, false, false))
-                    {
-                        
-                        var Arg0 = argHelper0.GetString(false);
-                        var result = new UnityEngine.TextAsset(Arg0);
-                        
-                        
-                        return Puerts.Utils.GetObjectPtr((int)data, typeof(UnityEngine.TextAsset), result);
-                    }
-                    
-                }
-                
-                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to UnityEngine.TextAsset constructor");
+                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to System.ValueType constructor");
             }
             catch (Exception e)
             {
@@ -58,13 +24,83 @@ namespace PuertsStaticWrap
         
         
         [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void M_Equals(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as System.ValueType;
+                
+                
+                {
+                    
+                    var argHelper0 = new Puerts.ArgumentHelper((int)data, isolate, info, 0);
+                    
+                    
+                    
+                    {
+                        
+                        var Arg0 = argHelper0.Get<System.Object>(false);
+                        var result = obj.Equals(Arg0);
+                        
+                        Puerts.PuertsDLL.ReturnBoolean(isolate, info, result);
+                        
+                        
+                    }
+                    
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
+        private static void M_GetHashCode(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
+        {
+            try
+            {
+                var obj = Puerts.Utils.GetSelf((int)data, self) as System.ValueType;
+                
+                
+                {
+                    
+                    
+                    
+                    
+                    {
+                        
+                        var result = obj.GetHashCode();
+                        
+                        Puerts.PuertsDLL.ReturnNumber(isolate, info, result);
+                        
+                        
+                    }
+                    
+                }
+                
+                
+            }
+            catch (Exception e)
+            {
+                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
+            }
+        }
+        
+        
+        
+        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
         private static void M_ToString(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
         {
             try
             {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.TextAsset;
+                var obj = Puerts.Utils.GetSelf((int)data, self) as System.ValueType;
                 
-                if (paramLen == 0)
+                
                 {
                     
                     
@@ -76,12 +112,12 @@ namespace PuertsStaticWrap
                         
                         Puerts.PuertsDLL.ReturnString(isolate, info, result);
                         
-                        return;
+                        
                     }
                     
                 }
                 
-                Puerts.PuertsDLL.ThrowException(isolate, "invalid arguments to ToString");
+                
             }
             catch (Exception e)
             {
@@ -91,44 +127,6 @@ namespace PuertsStaticWrap
         
         
 
-        
-        
-        
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void G_text(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.TextAsset;
-                var result = obj.text;
-                Puerts.PuertsDLL.ReturnString(isolate, info, result);
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-        
-        
-        
-        
-        
-        [Puerts.MonoPInvokeCallback(typeof(Puerts.V8FunctionCallback))]
-        private static void G_bytes(IntPtr isolate, IntPtr info, IntPtr self, int paramLen, long data)
-        {
-            try
-            {
-                var obj = Puerts.Utils.GetSelf((int)data, self) as UnityEngine.TextAsset;
-                var result = obj.bytes;
-                Puerts.ResultHelper.Set((int)data, isolate, info, result);
-            }
-            catch (Exception e)
-            {
-                Puerts.PuertsDLL.ThrowException(isolate, "c# exception:" + e.Message + ",stack:" + e.StackTrace);
-            }
-        }
-        
-        
         
 
         
@@ -144,6 +142,10 @@ namespace PuertsStaticWrap
                 Methods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
                 {
                     
+                    { new Puerts.MethodKey {Name = "Equals", IsStatic = false}, M_Equals },
+                    
+                    { new Puerts.MethodKey {Name = "GetHashCode", IsStatic = false}, M_GetHashCode },
+                    
                     { new Puerts.MethodKey {Name = "ToString", IsStatic = false}, M_ToString },
                     
                     
@@ -153,10 +155,6 @@ namespace PuertsStaticWrap
                 },
                 Properties = new System.Collections.Generic.Dictionary<string, Puerts.PropertyRegisterInfo>()
                 {
-                    
-                    {"text", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_text, Setter = null} },
-                    
-                    {"bytes", new Puerts.PropertyRegisterInfo(){ IsStatic = false, Getter = G_bytes, Setter = null} },
                     
                 },
                 LazyMethods = new System.Collections.Generic.Dictionary<Puerts.MethodKey, Puerts.V8FunctionCallback>()
